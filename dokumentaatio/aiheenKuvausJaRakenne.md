@@ -29,3 +29,8 @@ Pisteitä saa kun onnistuu sovittamaan palikoista yhtenäisen kerroksen.
 
  - pelialueen ulkopuolella on pistenäyttö
  - pisteet tallennetaan tulostiedostoon
+
+
+## Luokkakaavio
+
+![Luokkakaavio](luokkakaavio.png)

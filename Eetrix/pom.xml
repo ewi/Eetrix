@@ -33,7 +33,15 @@
         <plugin>
             <groupId>org.pitest</groupId>
             <artifactId>pitest-maven</artifactId>
-            <version>1.1.8</version>
+            <version>1.1.8</version> 
+            <configuration>
+        <targetClasses>
+            <param>fi.ewi.eetrix.core.*</param>
+        </targetClasses>
+        <targetTests>
+            <param>fi.ewi.eetrix.core.*</param>
+        </targetTests>
+    </configuration>
         </plugin>
     </plugins>
 </build>
