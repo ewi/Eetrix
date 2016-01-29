@@ -10,4 +10,4 @@ Pvm | tunnit | Mitä tehty
 2016-01-22 | 0.5h | Luokkakaavion raakavedos, yuml.me syntaksin testaus
 2016-01-23 | 0.3h | Täydennetty aiheen kuvausta
 2016-01-27 | 0.5h | Aloitettu koodaaminen
-2016-01-29 | 2.0h | Tehty alustava luokkakaavio ja luokkia
+2016-01-29 | 3.0h | Tehty alustava luokkakaavio, luokkia ja testejä
