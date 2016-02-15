@@ -13,3 +13,4 @@ Pvm | tunnit | Mitä tehty
 2016-01-29 | 3.0h | Tehty alustava luokkakaavio, luokkia ja testejä
 2016-02-03 | 2.0h | Gui harjoittelua.
 2016-02-05 | 2.5h | Tetris-logiikan teko käyttöliittymään
+2016-02-14 | 4.0h | Points- ja FileControl luokat. MVC-kontrolleri aloitettu
