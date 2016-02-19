@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fi.ewi.eetrix.core;
 
 /**
- *
+ * Class for game area operations.
  * @author ewi
  */
 public class GameArea {
@@ -45,11 +40,16 @@ public class GameArea {
         }
 
         if (!testCell(x, y)) {
-            this.area[x][y] = 0;
+            this.area[x][y] = 1;
         }
         return true;
     }
-
+    /**
+     * Test if gamearea cell at position x,y is free.
+     * @param x
+     * @param y
+     * @return true if free
+     */
     public boolean testCell(int x, int y) {
         if (area[x][y] == 0) {
             return true;
@@ -58,7 +58,7 @@ public class GameArea {
     }
 
     /**
-     * Set areacells to falss, this indicates non occupied cell.
+     * Set areacells to zero, this indicates non occupied cell.
      */
     private void initArea() {
         for (int i = 0; i < x; i++) {
@@ -80,12 +80,12 @@ public class GameArea {
         int x = bl.getXposition();
         int y = bl.getYposition();
         int z = 0;
-        for (char[] t : bl.getShape()) {
+        for (int[] t : bl.getShape()) {
             for (int i = 0; i < t.length; i++) {
-                if (t[i] == '1' && (x + i) > this.x || (x + i) < 0) {
+                if (t[i] == 1 && (x + i) > this.x || (x + i) < 0) {
                     return true;
                 }
-                if (t[i] == '1' && (y + i) > this.y || (y + i) < 0) {
+                if (t[i] == 1 && (y + i) > this.y || (y + i) < 0) {
                     return true;
                 }
             }
@@ -97,14 +97,13 @@ public class GameArea {
 
     /**
      * Merge block to gameArea.
-     *
-     * @return
+     * @return 
      */
     public boolean mergeBlock() {
         System.out.println("Pituus : " + this.block.getblockBoolean().length);
-        for (int i = 0; i < this.block.getblockBoolean().length; i++) {
-            for (int j = 0; j < this.block.getblockBoolean()[i].length; j++) {
-                if (this.block.getblockBoolean()[i][j] == true) {
+        for (int i = 0; i < this.block.getShape().length; i++) {
+            for (int j = 0; j < this.block.getShape()[i].length; j++) {
+                if (this.block.getShape()[i][j] == 1) {
                     setCell(this.block.getXposition() + i, this.block.getYposition() + j);
                 }
             }
@@ -125,11 +124,14 @@ public class GameArea {
 
     /**
      * Set block variable.
-     *
      * @param bl
      */
     public void setBlock(Block bl) {
         this.block = bl;
+    }
+    
+    public Block getBlock() {
+        return this.block;
     }
 
     public int[][] getGameArea() {

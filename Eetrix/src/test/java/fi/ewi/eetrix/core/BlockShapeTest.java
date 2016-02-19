@@ -35,7 +35,7 @@ public class BlockShapeTest {
     @Test
     public void testSquareblock() {
         bshape.squareBlock();
-        char[][] test = bshape.getBlockShape();
-        assertEquals(test[0][0], '1');
+        int[][] test = bshape.getBlockShape();
+        assertEquals(test[0][0], 1);
     }
 }

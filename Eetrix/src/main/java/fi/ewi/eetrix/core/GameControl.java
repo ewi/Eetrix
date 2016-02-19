@@ -17,6 +17,7 @@ public class GameControl {
         gamearea = new GameArea(10, 10);
         
     }
+    
     public int[][] printGameArea() {
         return gamearea.getGameArea();
     }

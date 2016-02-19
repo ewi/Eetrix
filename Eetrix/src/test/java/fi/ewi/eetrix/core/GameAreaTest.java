@@ -44,7 +44,7 @@ public class GameAreaTest {
     }
     @Test
     public void testCell() {
-        assertFalse(gamearea.testCell(1,1));
+        assertTrue(gamearea.testCell(1,1));
     }
     
     @Test
@@ -54,7 +54,7 @@ public class GameAreaTest {
     }
     @Test
     public void testCellsinitialcondition() {
-        assertEquals(gamearea.testCell(2,2),false);
+        assertEquals(gamearea.testCell(2,2),true);
     }
     
     @Test
@@ -62,15 +62,13 @@ public class GameAreaTest {
         block = new Block(5,5);
         gamearea.setBlock(block);
         System.out.println(gamearea.testCell(block.getXposition(), block.getYposition()));
-        assertFalse(gamearea.testCell(block.getXposition(), block.getYposition()));
+        assertEquals(gamearea.testCell(block.getXposition(), block.getYposition()),true);
     }
     @Test
     public void testMergeBlock_After() {
         block = new Block(5,5);
         gamearea.setBlock(block);
         gamearea.mergeBlock();
-        System.out.println(gamearea.testCell(block.getXposition(), block.getYposition()));
-        System.out.println(gamearea.testCell(block.getXposition(), block.getYposition()));
         assertEquals(gamearea.testCell(block.getXposition(), block.getYposition()),true);
     }
     @After

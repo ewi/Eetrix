@@ -16,25 +16,36 @@ import java.awt.event.*;
  */
 public class EetrixUI extends JFrame implements KeyListener {
 
-    static private GameControl gc = new GameControl();
-    //Canvas canvas = new Canvas();
-    DrawComponent dc = new DrawComponent();
-    DrawBlock bl;
+    private DrawComponent dc;
+    private DrawBlock bl;
+    private JButton startGameButton;
+    private JButton exitGameButton;
+    private JButton showScoreButton;
+    private JLabel scoreLabel;
 
     public EetrixUI() {
-        //DrawBlock db = new DrawBlock(10,10);
+        startGameButton = new JButton("Start Game");
+        exitGameButton = new JButton("Show Scores");
+        showScoreButton = new JButton("Exit Game");
+        scoreLabel = new JLabel();
 
-        //this.setLayout(new GridLayout(1,2));
-        this.setLayout(new FlowLayout());
+        dc = new DrawComponent();
+        this.setLayout(new BorderLayout());
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(4, 1));
+        panel.add(scoreLabel);
+        panel.add(startGameButton);
+        panel.add(exitGameButton);
+        panel.add(showScoreButton);
 
-//        this.add(new JButton());
-//        this.add(new JButton());
-        ab(15, 40);
+        this.add(panel, BorderLayout.EAST);
+        this.add(dc, BorderLayout.WEST);
 
-        //this.add(db);
         pack();
-        //db.addActionListener(keyPressAction);
+    }
 
+    public void addExitButtonListener(ActionListener listenForExitButton) {
+        exitGameButton.addActionListener(listenForExitButton);
     }
 
     private void ab(double x, double y) {
@@ -44,35 +55,29 @@ public class EetrixUI extends JFrame implements KeyListener {
 
         Thread t = new Thread(bl);
         t.start();
-//        try {
-//        bl.gameloop();
-//        } catch(Exception e ) {
-//            
-//        }
 
     }
 
-    private static void gui() {
-        JFrame ui = new EetrixUI();
-        ui.setTitle("Eetrix");
-        //ui.pack();
-        ui.setSize(300, 300);
-        ui.setVisible(true);
-        ui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//    private static void gui() {
+//        JFrame ui = new EetrixUI();
+//        ui.setTitle("Eetrix");
+//        ui.pack();
+//        ui.setSize(300, 300);
+//        ui.setVisible(true);
+//        ui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//
+//    }
 
-    }
-
-    public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                gui();
-            }
-        });
-    }
+//    public static void main(String[] args) {
+//        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+//            public void run() {
+//                gui();
+//            }
+//        });
+//    }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        // System.out.println(e.getKeyCode() + "KEY PRESSED: ");
         if (e.getKeyCode() == 39) {
             bl.moveRight();
         }
