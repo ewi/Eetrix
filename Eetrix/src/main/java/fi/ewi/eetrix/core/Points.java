@@ -23,20 +23,23 @@ public class Points {
     public boolean addPoints() {
         return addPoints(1);
     }
+
     public boolean addPoints(int p) {
-        if (testIntegeroverflow(1))
+        if (testIntegeroverflow(1)) {
             return false;
+        }
         this.points += p;
         return true;
     }
-    
+
     public void savePoints() {
-        ArrayList<String> list = new  ArrayList<>();
-        for (PointsContainer x: pointslist)
+        ArrayList<String> list = new ArrayList<>();
+        for (PointsContainer x : pointslist) {
             list.add(x.toString());
+        }
         filecontrol.setFileContents(list);
     }
-    
+
     private boolean testIntegeroverflow(int x) {
         try {
             Math.addExact(this.points, x);
@@ -45,14 +48,17 @@ public class Points {
         }
         return false;
     }
+
     public int getPoints() {
         return this.points;
     }
+
     private void readPointsfromFile() {
-        for (String x : filecontrol.getFileContents())
+        for (String x : filecontrol.getFileContents()) {
             pointslist.add(new PointsContainer(x));
+        }
     }
-    
+
     public void addPlayerToList(String playername) {
         PointsContainer pc = new PointsContainer();
         pc.setPlayer(playername);
@@ -64,7 +70,10 @@ public class Points {
 
         private int points;
         private String playerName;
-        public PointsContainer() {}
+
+        public PointsContainer() {
+        }
+
         public PointsContainer(String s) {
             fromString(s);
         }

@@ -20,25 +20,28 @@ public class EetrixUI extends JFrame implements KeyListener {
     //Canvas canvas = new Canvas();
     DrawComponent dc = new DrawComponent();
     DrawBlock bl;
+
     public EetrixUI() {
         //DrawBlock db = new DrawBlock(10,10);
-        
+
         //this.setLayout(new GridLayout(1,2));
         this.setLayout(new FlowLayout());
+
 //        this.add(new JButton());
 //        this.add(new JButton());
         ab(15, 40);
-        
+
         //this.add(db);
         pack();
         //db.addActionListener(keyPressAction);
 
     }
-    private void ab(double x,double y) {
-        bl = new DrawBlock(x,y);
+
+    private void ab(double x, double y) {
+        bl = new DrawBlock(x, y);
         this.addKeyListener(this);
         this.add(bl);
-        
+
         Thread t = new Thread(bl);
         t.start();
 //        try {
@@ -66,29 +69,30 @@ public class EetrixUI extends JFrame implements KeyListener {
             }
         });
     }
-    
-        @Override
-     public void keyPressed(KeyEvent e) {
-         // System.out.println(e.getKeyCode() + "KEY PRESSED: ");
-         if (e.getKeyCode() == 39) {
-             bl.moveRight(); 
-         }
-         if (e.getKeyCode() == 37) {
-             bl.moveLeft();
-             
-         }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        // System.out.println(e.getKeyCode() + "KEY PRESSED: ");
+        if (e.getKeyCode() == 39) {
+            bl.moveRight();
+        }
+        if (e.getKeyCode() == 37) {
+            bl.moveLeft();
+
+        }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         //displayInfo(e, "KEY RELEASED: ");
-                 //System.out.println(e.getKeyCode() + "KEY RELEASED: ");
+        //System.out.println(e.getKeyCode() + "KEY RELEASED: ");
 
     }
+
     @Override
     public void keyTyped(KeyEvent e) {
         //displayInfo(e, "KEY RELEASED: ");
-                 //System.out.println(e.getKeyCode() + "KEY Typed: ");
+        //System.out.println(e.getKeyCode() + "KEY Typed: ");
 
     }
 

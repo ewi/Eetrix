@@ -11,13 +11,13 @@ package fi.ewi.eetrix.core;
  */
 public class GameControl {
     private GameArea gamearea;
-//    private Points points;
+    private Points points;
 //    private 
-    public GameControl(){
-        gamearea = new GameArea(10,10);
+    public GameControl() {
+        gamearea = new GameArea(10, 10);
         
     }
-    public boolean[][] printGameArea() {
+    public int[][] printGameArea() {
         return gamearea.getGameArea();
     }
     

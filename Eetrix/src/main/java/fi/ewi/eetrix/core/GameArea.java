@@ -12,7 +12,7 @@ package fi.ewi.eetrix.core;
 public class GameArea {
 
     private int x, y;
-    private boolean[][] area;
+    private int[][] area;
     private Block block;
 
     /**
@@ -24,7 +24,7 @@ public class GameArea {
     public GameArea(int x, int y) {
         this.x = x;
         this.y = y;
-        this.area = new boolean[x][y];
+        this.area = new int[x][y];
         initArea(); // Initialize area to false
     }
 
@@ -37,19 +37,24 @@ public class GameArea {
     public boolean setCell(int x, int y) {
         int u = x - 1;
         int v = y - 1;
-        if (x > this.getX()-1)
+        if (x > this.getX() - 1) {
             return false;
-        if (y > this.getY()-1)
-            return false;
-        
-        if (!testCell(x, y)) {
-            this.area[x][y] = true;
         }
-        return this.area[x][y];
+        if (y > this.getY() - 1) {
+            return false;
+        }
+
+        if (!testCell(x, y)) {
+            this.area[x][y] = 0;
+        }
+        return true;
     }
 
     public boolean testCell(int x, int y) {
-        return area[x][y];
+        if (area[x][y] == 0) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -58,7 +63,7 @@ public class GameArea {
     private void initArea() {
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
-                this.area[i][j] = false;
+                this.area[i][j] = 0;
             }
         }
     }
@@ -89,33 +94,45 @@ public class GameArea {
         return false;
 
     }
-    
+
     /**
-     * Merge gameblock to gamearea
-     * @return 
+     * Merge block to gameArea.
+     *
+     * @return
      */
     public boolean mergeBlock() {
         System.out.println("Pituus : " + this.block.getblockBoolean().length);
-        for (int i = 0;i < this.block.getblockBoolean().length; i++) {
-            for (int j = 0; j < this.block.getblockBoolean()[i].length;j++) {
+        for (int i = 0; i < this.block.getblockBoolean().length; i++) {
+            for (int j = 0; j < this.block.getblockBoolean()[i].length; j++) {
                 if (this.block.getblockBoolean()[i][j] == true) {
-                    setCell(this.block.getXposition()+i,this.block.getYposition()+j);
+                    setCell(this.block.getXposition() + i, this.block.getYposition() + j);
                 }
             }
         }
         return true;
     }
-    
+
+    /**
+     * Initialize new block at center of gamearea.
+     *
+     * @return
+     */
     public boolean newBlock() {
-        block = new Block(this.x/2,0); // Initial position at middle of playing area 
+        block = new Block(this.x / 2, 0); // Initial position at middle of playing area 
         // and top of coordinate grid (y=0)
         return true;
     }
+
+    /**
+     * Set block variable.
+     *
+     * @param bl
+     */
     public void setBlock(Block bl) {
         this.block = bl;
     }
-    
-    public boolean[][] getGameArea() {
+
+    public int[][] getGameArea() {
         return this.area;
     }
 }

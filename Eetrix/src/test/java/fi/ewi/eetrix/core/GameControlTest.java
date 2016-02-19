@@ -52,7 +52,7 @@ public class GameControlTest {
     @Test
     public void testGameareainitialization() {
         GameControl gc = new GameControl();
-        boolean[][] t = gc.printGameArea();
+        int[][] t = gc.printGameArea();
         assertEquals(t.length,10);
         assertEquals(t[0].length,10);
         
