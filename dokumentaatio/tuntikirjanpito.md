@@ -15,3 +15,5 @@ Pvm | tunnit | Mitä tehty
 2016-02-05 | 2.5h | Tetris-logiikan teko käyttöliittymään
 2016-02-14 | 4.0h | Points- ja FileControl luokat. MVC-kontrolleri aloitettu
 2016-02-19 | 6.0h | Refaktorointia ja projektin kiinniottoa pitkän sairauden jälkeen.
+2016-02-24 | 3.0h | Refaktorointia ja mvc JComponent debug
+2016-02-25 | 3.0h | Refaktorointia ja mvc JComponent debug

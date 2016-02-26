@@ -1,7 +1,7 @@
-[GameControl|-game:int;|newGame();finishGame();]1++ - 1[GameArea| -area:int[];|initArea();]
-[GameControl]1++-*[Block|-number:int;score:int;|moveLeft();moveRight();]
-[GameControl]1++-1[Points|-score:int;|addScore(int);]
+[Controller|-game:int;|gameloop();]1++ - 1[GameArea| -area:int[];|initArea();]
+[Controller]1++-*[Block|-number:int;score:int;|moveLeft();moveRight();]
+[Controller]1++-1[Points|-score:int;|addScore(int);]
 [Points]1++-1[FileControl|-fileName:String;|saveFile();readFile();]1
 [Block]1++-1[BlockShape|-shape:int[]|randomBlockShape();]
-[GUI]1++-1[GameControl]
+[GUI]1++-1[Controller]
 

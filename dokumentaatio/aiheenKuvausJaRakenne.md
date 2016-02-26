@@ -20,7 +20,7 @@ Pisteitä saa kun onnistuu sovittamaan palikoista yhtenäisen kerroksen.
  - suorakaiteen muotoinen alue ohjelmaikkunassa
  - pelipalikat ilmestyvät pelialueen yläreunaan
  - josta ne tippuvat vakionopeudella alaspäin
- - palikat pysähtyvät pelialueen pohjalle
+ - palikat pysähtyvät pelialueen pohjalle tai osuessaan jo pelikentällä olevaan palikkaan
  - kun palikoista onnistuu sovittamaan yhtenäisen kerroksen, se häviää
  - peli päättyy kun pelaaja ei onnistu sovittamaan palikkaa ja seuraava 
  palikka leikkaa pelialueella jo olevia palikoita

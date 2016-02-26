@@ -11,13 +11,18 @@ import fi.ewi.eetrix.mvccontroller.*;
  */
 public class Eetrix {
 
+    /**
+     * Main class for starting program.
+     * @param args default variable.
+     */
     public static void main(String[] args) {
         EetrixUI ui = new EetrixUI();
-        GameControl gc = new GameControl();
+        
+        GameArea ga = new GameArea(11, 21);
 
-        Controller eetrixController = new Controller(ui, gc);
+        Controller eetrixController = new Controller(ui, ga);
         ui.setTitle("Eetrix");
-        ui.setSize(300, 300);
+        ui.setSize(310, 310);
         ui.setVisible(true);
     }
 }

@@ -40,7 +40,7 @@ public class GameAreaTest {
     }
     @Test
     public void testblockset() {
-        assertTrue(gamearea.setCell(1,1));
+        assertTrue(gamearea.setCell(1,1,1));
     }
     @Test
     public void testCell() {
@@ -49,8 +49,8 @@ public class GameAreaTest {
     
     @Test
     public void testInitialGameArea() {
-        assertEquals(gamearea.getX(),10);
-        assertEquals(gamearea.getY(),10);
+        assertEquals(gamearea.getWidth(),10);
+        assertEquals(gamearea.getHeight(),10);
     }
     @Test
     public void testCellsinitialcondition() {

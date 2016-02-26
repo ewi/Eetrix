@@ -16,6 +16,11 @@ public class FileControl {
     private PrintWriter outFilePointer;
     private ArrayList<String> fileContents;
 
+    /**
+     * Constructor for file operations. 
+     * 
+     * @param fileName File name.
+     */
     public FileControl(String fileName) {
         this.fileName = fileName;
         fileContents = new ArrayList<>();
@@ -28,32 +33,59 @@ public class FileControl {
             //createFile();
         }
     }
-
+    
+    /**
+     * Return file contents as list of strings in arraylist.
+     *
+     * @return ArrayList of file contents.
+     */
     public ArrayList<String> getFileContents() {
         return fileContents;
     }
 
+    /**
+     * Set fileContents array contents and write to file.
+     *
+     * @param contents Contents of scorelist.
+     */
     public void setFileContents(ArrayList<String> contents) {
         this.fileContents = contents;
         writeFileContents();
     }
 
+    /**
+     * Test if file is writable.
+     *
+     * @return true if can write
+     */
     public boolean fileIsWritable() {
         return inFilePointer.canWrite();
     }
 
+    /**
+     * Set input file variable.
+     */
     private void setFilepointer() {
         inFilePointer = new File(fileName);
     }
 
+    /**
+     * Open file for reading. If file does not exist create it.
+     *
+     * @throws Exception
+     */
     private void openFileforReading() throws Exception {
         if (!inFilePointer.exists()) {
             inFilePointer.createNewFile();
         }
-        // createFile();
     }
 
-    private boolean createFile() throws Exception {
+    /**
+     * Create file with exceptions. Return true if success, false otherwise.
+     *
+     * @return success value
+     */
+    private boolean createFile() {
         try {
             outFilePointer = new PrintWriter(new FileOutputStream(fileName), true);
         } catch (Exception poikkeus) {
@@ -62,8 +94,10 @@ public class FileControl {
         return true;
     }
 
+    /**
+     * Write fileContents array variable to outputfile.
+     */
     private void writeFileContents() {
-//        inFilePointer.close();
         try {
             createFile();
             fileContents.stream()
@@ -73,6 +107,10 @@ public class FileControl {
         }
     }
 
+    /**
+     * Read file contents to variable.
+     * @throws Exception 
+     */
     private void readFileContents() throws Exception {
         Scanner reader = new Scanner(inFilePointer);
         outFilePointer.close();
